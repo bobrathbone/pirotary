@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # Raspberry Pi Rotary Encoder Class
-# $Id: rotary_class.py,v 1.2 2014/01/31 13:34:48 bob Exp $
+# $Id: rotary_class.py,v 1.3 2021/04/20 12:23:04 bob Exp $
 #
 # Author : Bob Rathbone
 # Site   : http://www.bobrathbone.com
@@ -48,8 +48,8 @@ class RotaryEncoder:
 		#GPIO.setup(self.button, GPIO.IN)
 
 		# Add event detection to the GPIO inputs
-		GPIO.add_event_detect(self.pinA, GPIO.FALLING, callback=self.switch_event)
-		GPIO.add_event_detect(self.pinB, GPIO.FALLING, callback=self.switch_event)
+		GPIO.add_event_detect(self.pinA, GPIO.BOTH, callback=self.switch_event)
+		GPIO.add_event_detect(self.pinB, GPIO.BOTH, callback=self.switch_event)
 		GPIO.add_event_detect(self.button, GPIO.BOTH, callback=self.button_event, bouncetime=200)
 		return
 
