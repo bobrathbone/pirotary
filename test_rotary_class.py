@@ -32,6 +32,11 @@ def switch_event(event):
 # Define the switch
 rswitch = RotaryEncoder(PIN_A,PIN_B,BUTTON,switch_event)
 
+print("Pin A "+ str(PIN_A))
+print("Pin B "+ str(PIN_B))
+print("BUTTON "+ str(BUTTON))
+
+# Listen
 while True:
 	time.sleep(0.5)
 

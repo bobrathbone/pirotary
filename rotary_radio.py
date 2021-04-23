@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# $Id: rotary_radio.py,v 1.2 2013/12/30 18:52:47 bob Exp $
+# $Id: rotary_radio.py,v 1.3 2021/04/23 08:31:35 bob Exp $
 # Simple radio using four buttons
 
 import os
@@ -21,6 +21,9 @@ CHANNEL_UP = 15
 CHANNEL_DOWN = 16
 MENU = 7
 
+# Amend  playlist to point to a valid playlist in /var/lib/mpd/playlist 
+# without the .m3u ot .pls extension
+playlist = "_Radio"
 
 # Execute system command sub-routine
 def exec_command(cmd):
@@ -49,7 +52,7 @@ def callback(event):
 if __name__ == "__main__":
 	exec_command("service mpd start")
 	exec_command("mpc clear")
-	exec_command("mpc load mylist.pls")
+	exec_command("mpc load " + playlist) # Amend to load a valid playlist into MPD
 	exec_command("mpc play")
 	exec_command("mpc volume 70")
 	print exec_command("mpc current")
